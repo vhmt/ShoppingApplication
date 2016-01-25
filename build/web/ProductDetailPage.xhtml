@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Ürün Ayrıntı Sayfası
+        <h:form>
+            <table border="1">
+                <tr><td>Ürün No:</td><td><h:outputText value="#{productDetailBean.product.productId}"/></td></tr>
+                <tr><td>Ürün Adı:</td><td><h:inputText value="#{productDetailBean.product.productName}"/></td></tr>
+                <tr><td>Satış Fiyatı:</td><td><h:inputText value="#{productDetailBean.product.salesPrice}"/></td></tr>
+                <tr><td>Kategori </td><td><h:selectOneMenu value="#{productDetailBean.selectedCategoryId}">
+                            <f:selectItems value="#{productDetailBean.categoryItems}"/>                        
+                        </h:selectOneMenu></td></tr>
+                <tr><td><h:commandLink value="Sakla" action="#{productDetailBean.save()}">
+                        <f:param name="productId" value="#{productDetailBean.product.productId}"/>
+                        </h:commandLink>
+                    </td>
+               <td><h:outputLink value="ProductSummaryPage.xhtml">Liste</h:outputLink></td></tr>
+            </table>
+            
+        </h:form> 
+     
+    </h:body>
+</html>
+
