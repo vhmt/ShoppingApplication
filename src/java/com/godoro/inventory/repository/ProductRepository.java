@@ -27,6 +27,17 @@ public class ProductRepository {
         manager.close();
         return productList;
     }
+      public List<Product> listByCategoryId(long categoryId){
+        EntityManagerFactory factory=Persistence.createEntityManagerFactory("ShoppingApplicationPU");
+        EntityManager manager=factory.createEntityManager();
+        String string="select product from Product as product where product.category.categoryId=:categoryId";
+        Query query = manager.createQuery(string);
+        query.setParameter("categoryId", categoryId);
+        List<Product> productList=query.getResultList();
+        manager.close();
+        return productList;
+    }
+    
     public void insert(Product product){
         EntityManagerFactory factory=Persistence.createEntityManagerFactory("ShoppingApplicationPU");
         EntityManager manager=factory.createEntityManager();

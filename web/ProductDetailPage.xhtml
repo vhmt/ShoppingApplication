@@ -13,6 +13,9 @@
                 <tr><td>Ürün No:</td><td><h:outputText value="#{productDetailBean.product.productId}"/></td></tr>
                 <tr><td>Ürün Adı:</td><td><h:inputText value="#{productDetailBean.product.productName}"/></td></tr>
                 <tr><td>Satış Fiyatı:</td><td><h:inputText value="#{productDetailBean.product.salesPrice}"/></td></tr>
+                <tr><td>Kategori </td><td><h:selectOneMenu value="#{productDetailBean.selectedCategoryId}">
+                            <f:selectItems value="#{productDetailBean.categoryItems}"/>                        
+                        </h:selectOneMenu></td></tr>
                 <tr><td><h:commandLink value="Sakla" action="#{productDetailBean.save()}">
                         <f:param name="productId" value="#{productDetailBean.product.productId}"/>
                         </h:commandLink>
